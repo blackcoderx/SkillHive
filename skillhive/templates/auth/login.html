@@ -1,0 +1,130 @@
+{%load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login - SkillHive</title>
+    <link rel="stylesheet" href="{% static 'styles/style.css' %}" />
+    <style>
+      :root {
+        --primary: #4f46e5;
+        --primary-hover: #4338ca;
+        --primary-light: #e0e7ff;
+        --secondary: #f9fafb;
+        --secondary-hover: #f3f4f6;
+        --accent: #6366f1;
+        --accent-hover: #4f46e5;
+        --success: #10b981;
+        --warning: #f59e0b;
+        --error: #ef4444;
+        --background: #ffffff;
+        --foreground: #111827;
+        --muted: #6b7280;
+        --muted-foreground: #9ca3af;
+        --border: #e5e7eb;
+        --input: #d1d5db;
+        --ring: #4f46e5;
+        --radius: 0.5rem;
+        }
+
+      body {
+        background-color: var(--primary-light);
+      }
+      .login-container {
+        max-width: 500px;
+        margin: 4rem auto;
+        padding-inline: 1.5rem;
+        padding-block: 0.5rem;
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        background: var(--background);
+        box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        align-items: center;
+      }
+      .login-container h1 {
+        color: var(--primary);
+        font-size: 2rem;
+      }
+      .login-container h2 {
+        font-size: 1.2rem;
+        color: var(--foreground);
+      }
+      .login-container form {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+      }
+      .login-container label {
+        font-weight: 500;
+        color: var(--foreground);
+        margin-bottom: 0.2rem;
+      }
+      .login-container input[type="email"],
+      .login-container input[type="password"] {
+        width: 100%;
+        padding: 0.7rem;
+        border: 1px solid var(--input);
+        border-radius: var(--radius);
+        font-size: 1rem;
+        color: var(--foreground);
+      }
+      .login-container button {
+        background: var(--primary);
+        color: var(--secondary);
+        font-weight: bold;
+        padding: 0.7rem;
+        border: none;
+        border-radius: var(--radius);
+        cursor: pointer;
+        font-size: 1rem;
+        transition: background 0.2s;
+      }
+      .login-container button:hover {
+        background: var(--primary-hover);
+      }
+      .login-footer {
+        margin-top: 1rem;
+        font-size: 0.95rem;
+        color: var(--muted);
+        text-align: center;
+      }
+      .login-footer a {
+        color: var(--primary);
+        text-decoration: underline;
+        margin-left: 0.3rem;
+      }
+    </style>-
+  </head>
+  <body>
+    <div class="login-container">
+      <h1>SkillHive</h1>
+      <h2>Welcome back</h2>
+      <p>Sign in to your account to continue</p>
+      <form id="login-form" method="POST">
+        {% csrf_token%}
+        <div>
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required autocomplete="username" />
+        </div>
+        <div>
+          <label for="password">Password</label>
+          <input type="password" id="password" name="password" required autocomplete="current-password" />
+        </div>
+        <button type="submit">Sign In</button>
+      </form>
+      <div class="login-footer">
+        Don't have an account?
+        <a href="{% url 'register' %}">Sign up</a>
+      </div>
+    </div>
+
+
+  <script src="../js/auth.js"></script>
+
+  </body>
+</html>

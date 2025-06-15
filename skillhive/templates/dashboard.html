@@ -1,0 +1,333 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard-SkillHive</title>
+    <link rel="stylesheet" href="{% static 'styles/dashboard.css' %}" />
+
+  </head>
+  <body>
+    <header>
+      <h1> <a href="./index.html">SkillHive</a></h1>
+      <nav>
+        <ul>
+          <li><a href="./skills.html" class="btn-browse">Browse Skills</a></li>
+          <li>
+            <a href="{% url 'logout' %}" class="btn-logout">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="lucide lucide-log-out-icon lucide-log-out"
+              >
+                <path d="m16 17 5-5-5-5" />
+                <path d="M21 12H9" />
+                <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4" />
+              </svg>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <section class="dashboard-stats">
+        <div class="dashboard-header">
+          <h2>Dashboard</h2>
+          <p>Manage your skills and learning requests</p>
+        </div>
+
+        <div class="dashboard-cards">
+          
+            <!-- card-1 -->
+            <div class="cards cards-1">
+              <div>
+                <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="lucide lucide-book-open-icon lucide-book-open"
+              >
+                <path d="M12 7v14" />
+                <path
+                  d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"
+                />
+              </svg>
+              </div>
+
+              <div class="card-des">
+                <h3>My Skills</h3>
+                <p>1</p>
+              </div>
+            </div>
+            <!-- card-2 -->
+            <div class="cards cards-2">
+              <div>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="lucide lucide-users-icon lucide-users"
+              >
+                <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+                <path d="M16 3.128a4 4 0 0 1 0 7.744" />
+                <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
+                <circle cx="9" cy="7" r="4" />
+              </svg>
+              </div>
+
+              <div class="card-des">
+                <h3>My Skills</h3>
+                <p>1</p>
+              </div>
+            </div>
+
+            <!-- card-3 -->
+            <div class="cards cards-3">
+              <div>
+                             <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="lucide lucide-message-square-icon lucide-message-square"
+              >
+                <path
+                  d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"
+                />
+              </svg>
+              </div>
+
+              <div class="card-des">
+                <h3>Sent Requests</h3>
+                <p>1</p>
+              </div>
+            </div>
+
+            <!-- card-4 -->
+            <div class="cards cards-4">
+              <div>
+                             <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="lucide lucide-message-square-icon lucide-message-square"
+              >
+                <path
+                  d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"
+                />
+              </svg>
+              </div>
+
+              <div class="card-des">
+                <h3>Received Requests</h3>
+                <p>1</p>
+              </div>
+            </div>
+
+          </div>
+
+
+        </section>
+        
+      <section class="skill-list">
+        <div>
+          <div class="tabs">
+            <button class="tab-btn active" data-tab="skills">My Skills</button>
+            <button class="tab-btn" data-tab="requests">My Requests</button>
+          </div>
+          <div class="tab-content" id="skills-tab">
+            <!-- Content for My Skills -->
+            <div class="skills-header">
+              <h2>My Skills</h2>
+              <button>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="lucide lucide-plus-icon lucide-plus"
+                >
+                  <path d="M12 5v14" />
+                  <path d="M5 12h14" />
+                </svg>
+                Add Skill
+              </button>
+            </div>
+
+            <div class="skills-content">
+              <!-- skils i want to teach  -->
+              <div class="skill-card-cont teach">
+                <div class="skill-card-header">
+                  <h3>Skills I Can Teach.</h3>
+                </div>
+
+                {}
+                <div class="skill-card">
+                  <div class="skill-head">
+                    <p class="skill-name">Skill name</p>
+                    <span class="skill-level">Level of skill</span>
+                  </div>
+                  <div class="skill-description">
+                    <p>
+                      description
+                    </p>
+                  </div>
+                  <div class="skill-category">
+                    <span>
+                      category
+                    </span>
+                  </div>
+                </div>
+                {}
+              </div>
+
+              <!-- Skills i want to learn. -->
+              <div class="skill-card-cont learn">
+                <div class="skill-card-header">
+                  <h3>Skills I Want Learn.</h3>
+                </div>
+
+                <div class="skill-card">
+                  <div class="skill-head">
+                    <p class="skill-name">Skill name</p>
+                    <span class="skill-level">Level of skill</span>
+                  </div>
+                  <div class="skill-description">
+                    <p>
+                      description
+                    </p>
+                  </div>
+                  <div class="skill-category">
+                    <span>
+                      category
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+          <div class="tab-content" id="requests-tab" style="display:none;">
+            <!-- Content for My Requests -->
+            <p>Here are your requests.</p>
+          </div>
+        </div>
+      </section>
+
+      </main>
+
+
+
+    <!-- Pop over -->
+        <div id="addSkillPopover" class="popover-overlay" style="display:none;">
+        <div class="popover-content">
+          <h3>Add Skill</h3>
+          <form id="add-skill-form" action="{% url 'create-skill' %}" method="POST">
+            {% csrf_token %}
+            <div>
+              <label for="skill-title">Skill Title</label>
+              <input type="text" id="skill-title" name="title" required />
+            </div>
+            <div>
+              <label for="skill-description">Description</label>
+              <textarea id="skill-description" name="description" required></textarea>
+            </div>
+            <div>
+              <label for="skill-category">Category</label>
+              <select id="skill-category" name="category" required>
+                <option value="">Select category</option>
+                <option value="Programming">Programming</option>
+                <option value="Design">Design</option>
+                <option value="Marketing">Marketing</option>
+                <option value="Language">Language</option>
+                <option value="Business">Business</option>
+              </select>
+            </div>
+            <div>
+              <label>Type</label>
+              <div class="skill-type-options">
+                <input type="radio" id="teach" name="teach" value="teach" />
+                <label for="teach">I can teach this</label>
+                <input type="radio" id="learn" name="learn" value="learn" />
+                <label for="learn">I want to learn this</label>
+              </div>
+            </div>
+            <div>
+              <label for="skill-level">Level</label>
+              <select id="skill-level" name="level" required>
+                <option value="">Select level</option>
+                <option value="Beginner">Beginner</option>
+                <option value="Intermediate">Intermediate</option>
+                <option value="Advanced">Advanced</option>
+              </select>
+            </div>
+            <div class="popover-actions">
+              <button type="submit">Add Skill</button>
+              <button type="button" id="closePopoverBtn">Cancel</button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <!-- Success animation overlay -->
+      {% if skill_created %}
+      <script>
+        document.addEventListener("DOMContentLoaded", function() {
+          const successAnimation = document.getElementById("successAnimation");
+          successAnimation.style.display = "block";
+          setTimeout(() => {
+            successAnimation.style.display = "none";
+          }, 1500);
+        });
+      </script>
+      {% endif %}
+
+      <div id="successAnimation" class="success-animation-overlay" style="display:none;">
+        <div class="success-animation-content">
+          <svg width="80" height="80" viewBox="0 0 80 80">
+            <circle cx="40" cy="40" r="36" fill="#e0ffe0" stroke="#10b981" stroke-width="4"/>
+            <polyline points="25,43 37,55 55,30" fill="none" stroke="#10b981" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <p>Skill added successfully!</p>
+        </div>
+      </div>
+    <!-- pop over end   -->
+    <script src="{% static 'js/dashboard.js' %}"></script>
+  </body>
+</html>

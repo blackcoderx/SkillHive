@@ -1,0 +1,178 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static 'styles/style.css' %}" />
+    <title>SkillHive-Share Skills, Learn Together</title>
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+  </head>
+  <body>
+    <header>
+      <h1>SkillHive</h1>
+      <nav>
+        <ul>
+          <li><a href="{% url 'login' %}">Login</a></li>
+          <li><a href="{% url 'register' %}" class="btn-signup">Sign Up</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <!-- Hero Section -->
+      <section class="hero">
+        <div class="hero-content">
+          <h2>Share Skills, Learn Together</h2>
+          <p>
+            Connect with people who want to learn what you know, and discover
+            new skills from others in your community.
+          </p>
+
+          <div class="call-btn">
+            <a href="{% url 'register' %}" class="btn-start">Get Started</a>
+            <a href="" class="btn-browse">Browse Skills</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- How it works Section -->
+      <section class="hiw">
+        <div>
+          <h2>How SkillSwap Works</h2>
+        </div>
+        <div class="cards-cont">
+          <!-- Card-1 -->
+          <div class="cards-func">
+            <div>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="lucide lucide-users-icon lucide-users"
+              >
+                <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+                <path d="M16 3.128a4 4 0 0 1 0 7.744" />
+                <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
+                <circle cx="9" cy="7" r="4" />
+              </svg>
+            </div>
+
+            <h3>Create Profile</h3>
+            <p>
+              Sign up and create a profile showcasing your skills and what you
+              want to learn or teach.
+            </p>
+          </div>
+
+          <!-- Card-2 -->
+          <div class="cards-func">
+            <div>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="lucide lucide-book-open-icon lucide-book-open"
+              >
+                <path d="M12 7v14" />
+                <path
+                  d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"
+                />
+              </svg>
+            </div>
+            <h3>List Skills</h3>
+            <p>
+              Add skills you can teach and skills you want to learn from others.
+            </p>
+          </div>
+
+          <!-- Card-3 -->
+          <div class="cards-func">
+            <div>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="lucide lucide-message-square-icon lucide-message-square"
+              >
+                <path
+                  d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"
+                />
+              </svg>
+            </div>
+            <h3>Send Requests</h3>
+
+            <p>
+              Browse through profiles and send requests to connect with others
+              who share your interests.
+            </p>
+          </div>
+
+          <!-- Card-4 -->
+          <div class="cards-func">
+            <div>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="lucide lucide-star-icon lucide-star"
+              >
+                <path
+                  d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"
+                />
+              </svg>
+            </div>
+            <h3>Start Learning</h3>
+            <p>
+              Connect with your matches and start your skill-sharing journey.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!--Call-to-Action -->
+      <section class="cta">
+        <div>
+          <h2>Ready to Share Your Skills?</h2>
+          <p>
+            Join SkillSwap today and start connecting with others who want to
+            learn and teach.
+          </p>
+          <a href="auth/sign-up.html" class="btn-cta">Join SkillSwap Today</a>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>&copy; SkillSwap. All rights reserved. Emmanuel Ziggah 😎</p>
+    </footer>
+
+    <script>
+      console.log( localStorage.getItem("authToken") );
+    </script>
+  </body>
+</html>
