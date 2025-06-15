@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Dashboard-SkillHive</title>
     <link rel="stylesheet" href="{% static 'styles/dashboard.css' %}" />
+    <link rel="stylesheet" href="{% static 'styles/skills.css' %}" />
 
   </head>
   <body>
@@ -13,7 +14,7 @@
       <h1> <a href="./index.html">SkillHive</a></h1>
       <nav>
         <ul>
-          <li><a href="./skills.html" class="btn-browse">Browse Skills</a></li>
+          <li><a href="{% url 'skills' %}" class="btn-browse">Browse Skills</a></li>
           <li>
             <a href="{% url 'logout' %}" class="btn-logout">
               <svg
@@ -69,7 +70,7 @@
               </div>
 
               <div class="card-des">
-                <h3>My Skills</h3>
+                <h3>Skills to Teach</h3>
                 <p>1</p>
               </div>
             </div>
@@ -96,7 +97,7 @@
               </div>
 
               <div class="card-des">
-                <h3>My Skills</h3>
+                <h3>Skills to Learn</h3>
                 <p>1</p>
               </div>
             </div>
@@ -197,24 +198,24 @@
                   <h3>Skills I Can Teach.</h3>
                 </div>
 
-                {}
+                {% for skill in l_skills %}
                 <div class="skill-card">
                   <div class="skill-head">
-                    <p class="skill-name">Skill name</p>
-                    <span class="skill-level">Level of skill</span>
+                    <p class="skill-name">{{ skill.title }}</p>
+                    <span class="skill-level">{{ skill.level }}</span>
                   </div>
                   <div class="skill-description">
                     <p>
-                      description
+                      {{ skill.description }}
                     </p>
                   </div>
                   <div class="skill-category">
                     <span>
-                      category
+                      {{ skill.category }}
                     </span>
                   </div>
                 </div>
-                {}
+                {% endfor %}
               </div>
 
               <!-- Skills i want to learn. -->
@@ -223,29 +224,73 @@
                   <h3>Skills I Want Learn.</h3>
                 </div>
 
+                {% for skill in t_skills %}
                 <div class="skill-card">
                   <div class="skill-head">
-                    <p class="skill-name">Skill name</p>
-                    <span class="skill-level">Level of skill</span>
+                    <p class="skill-name">{{ skill.title }}</p>
+                    <span class="skill-level">{{ skill.level }}</span>
                   </div>
                   <div class="skill-description">
                     <p>
-                      description
+                      {{ skill.description }}
                     </p>
                   </div>
                   <div class="skill-category">
                     <span>
-                      category
+                      {{ skill.category }}
                     </span>
                   </div>
                 </div>
+                {% endfor %}
               </div>
 
             </div>
           </div>
           <div class="tab-content" id="requests-tab" style="display:none;">
             <!-- Content for My Requests -->
-            <p>Here are your requests.</p>
+
+            <div class="rcont">
+
+              <div class="rcont-sub">
+                <h2>
+                  Sent Requests
+                </h2>
+
+                <div class="requests-ccc">
+                  {% for request in requests_sent %}
+                    <div class="request"> 
+                      <div class="request-header">
+                      <p>To: {{ request.to_user.full_name }}</p>
+                      <p>{{ request.status }}</p>
+                      </div>
+                      <p>Skill: {{ request.skill.title }}</p>
+                    </div>
+                  {% endfor %}
+                </div>
+              </div>
+
+              <!-- received requests -->
+              <div class="rcont-sub">
+                <h2>
+                  Received Requests
+                </h2>
+
+                <div class="requests-ccc">
+                  {% for request in requests_received %}
+                    <div class="request">
+                      <div class="request-header">
+                      <p>To: {{ request.to_user.full_name }}</p>
+                      <p>{{ request.status }}</p>
+                      </div>
+                      <p>Skill: {{ request.skill.title }}</p>
+                      <button class="accept">
+                      <a href="{% url 'accept_request' request.id %}">Accept</a>
+                      </button>
+                    </div>
+                  {% endfor %}
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -306,8 +351,8 @@
       </div>
 
       <!-- Success animation overlay -->
-      {% if skill_created %}
-      <script>
+      <!-- {% if skill_created %} -->
+      <!-- <script>
         document.addEventListener("DOMContentLoaded", function() {
           const successAnimation = document.getElementById("successAnimation");
           successAnimation.style.display = "block";
@@ -315,10 +360,12 @@
             successAnimation.style.display = "none";
           }, 1500);
         });
-      </script>
-      {% endif %}
+      </script> -->
+      <!-- {% endif %} -->
 
-      <div id="successAnimation" class="success-animation-overlay" style="display:none;">
+      {% if skill_created %}
+      <div id="successAnimation" class="success-animation-overlay"
+      {% if display %} style="display:block;" {% endif %}>
         <div class="success-animation-content">
           <svg width="80" height="80" viewBox="0 0 80 80">
             <circle cx="40" cy="40" r="36" fill="#e0ffe0" stroke="#10b981" stroke-width="4"/>
@@ -327,6 +374,7 @@
           <p>Skill added successfully!</p>
         </div>
       </div>
+      {% endif %}
     <!-- pop over end   -->
     <script src="{% static 'js/dashboard.js' %}"></script>
   </body>

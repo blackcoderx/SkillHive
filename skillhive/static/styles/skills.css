@@ -1,0 +1,132 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+
+:root {
+  --primary: #4f46e5;
+  --primary-hover: #4338ca;
+  --primary-light: #e0e7ff;
+  --secondary: #f9fafb;
+  --secondary-hover: #f3f4f6;
+  --accent: #6366f1;
+  --accent-hover: #4f46e5;
+  --success: #10b981;
+  --warning: #f59e0b;
+  --error: #ef4444;
+  --background: #ffffff;
+  --foreground: #111827;
+  --muted: #6b7280;
+  --muted-foreground: #9ca3af;
+  --border: #e5e7eb;
+  --input: #d1d5db;
+  --ring: #4f46e5;
+  --radius: 0.5rem;
+  }
+
+.skill-cc {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 1rem;
+  width: 30dvw;
+
+  border-radius: var(--radius);
+  background-color: var(--background);
+  border: 1px solid var(--border);
+}
+
+
+.main-cc{
+  padding: 1rem;
+}
+
+.skills-ls{
+  display: flex;
+  justify-content: space-evenly;
+  gap: 1rem;
+}
+.skill-hd {
+  font-size: 1rem;
+  font-weight: bold;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding-inline: 5px;
+}
+
+.skill-dn {
+  margin: 1rem 0;
+  font-size: 0.777rem;
+  color: var(--muted-foreground);
+}
+
+.skill-ds {
+  font-size: 0.875rem;
+  color: var(--muted);
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+} 
+
+
+
+/* requests */
+.rcont {
+  display: flex;
+  justify-content: space-between;
+
+}
+
+
+.rcont-sub {
+  width: 49%;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1rem;
+  background-color: var(--background);
+}
+
+.request-ccc{
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.request-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-block: 5px;
+}
+
+.request{
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 0.5rem;
+  margin-top: 0.5rem;
+
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.accept{
+  background-color: var(--accent);
+  width: 100%;
+  padding: 0.5rem;
+  border-radius: var(--radius);
+  cursor: pointer;
+  margin-top: 1rem;
+
+
+}
+
+.accept:hover{
+  background-color: var(--accent-hover);
+}
+
+.accept > a{
+  color: var(--background);
+  text-decoration: none;
+  font-weight: 600;
+}
