@@ -1,5 +1,6 @@
 set -o errexit
 
+cd skillhive
 pip install -r requirements.txt
 
 python manage.py collectstatic --no-input

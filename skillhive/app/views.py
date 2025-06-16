@@ -90,11 +90,12 @@ def CreateSkillView(request):
     return redirect('login')
 
   if request.method == 'POST':
-    type = request.POST.get('learn')
-
-    if type == None:
+    if request.POST.get('teach') is not None:
       type = 'teach'
 
+    if request.POST.get('learn') is not None:
+      type = 'learn'
+      
     skill = Skill.objects.create(
       user=request.user,
       title=request.POST.get('title'),
