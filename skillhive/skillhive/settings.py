@@ -5,7 +5,9 @@ SECRET_KEY = 'django-insecure-saz=vnn3@&)i+(+u-^75e^tn22s@-kq1-6esld-e_&5v6vm1f+
 
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+  'skillhive-46he.onrender.com'
+]
 
 
 AUTH_USER_MODEL = 'app.CustomUserModel'
