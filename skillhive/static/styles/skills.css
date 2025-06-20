@@ -21,17 +21,7 @@
   --radius: 0.5rem;
   }
 
-.skill-cc {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 1rem;
-  width: 30dvw;
 
-  border-radius: var(--radius);
-  background-color: var(--background);
-  border: 1px solid var(--border);
-}
 
 
 .main-cc{
@@ -40,8 +30,23 @@
 
 .skills-ls{
   display: flex;
-  justify-content: space-evenly;
+
+  flex-wrap: wrap;
   gap: 1rem;
+
+}
+
+.skill-cc{
+  flex-wrap: 0 1 40dvw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 1rem;
+  width: 30dvw;
+
+  border-radius: var(--radius);
+  background-color: var(--secondary);
+  border: 1px solid var(--border);
 }
 .skill-hd {
   font-size: 1rem;

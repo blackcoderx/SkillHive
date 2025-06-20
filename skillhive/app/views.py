@@ -53,6 +53,11 @@ def RegisterView(request):
 def DashboardView(request):
   if not request.user.is_authenticated:
     return redirect('login')
+
+  number_of_sent_requests = Requests.objects.filter(from_user=request.user, status='pending').count()
+  number_of_t_skills = Skill.objects.filter(user=request.user, type='teach').count()
+  number_of_l_skills = Skill.objects.filter(user=request.user, type='learn').count()
+  number_of_received_requests = Requests.objects.filter(to_user=request.user, status='pending').count()
   
   t_skills = Skill.objects.filter(user=request.user, type='teach').order_by('-created_at')
   l_skills = Skill.objects.filter(user=request.user, type='learn').order_by('-created_at')
@@ -62,13 +67,16 @@ def DashboardView(request):
   # Get all requests received by the user
   requests_received = Requests.objects.filter(to_user=request.user, status='pending').order_by('-created_at')
 
-  # If you want to include accepted requests as well, you can modify the filter:
   content = {
     'user': request.user,
     't_skills': t_skills,
     'l_skills': l_skills,
     'requests_sent': requests_sent,
     'requests_received': requests_received,
+    'number_of_sent_requests': number_of_sent_requests,
+    'number_of_t_skills': number_of_t_skills,
+    'number_of_l_skills': number_of_l_skills,
+    'number_of_received_requests': number_of_received_requests,
   }
 
   return render(request, 'dashboard.html', content)
@@ -95,7 +103,7 @@ def CreateSkillView(request):
 
     if request.POST.get('learn') is not None:
       type = 'learn'
-      
+
     skill = Skill.objects.create(
       user=request.user,
       title=request.POST.get('title'),

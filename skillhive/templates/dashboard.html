@@ -71,7 +71,7 @@
 
               <div class="card-des">
                 <h3>Skills to Teach</h3>
-                <p>1</p>
+                <p>{{ number_of_t_skills }}</p>
               </div>
             </div>
             <!-- card-2 -->
@@ -98,7 +98,7 @@
 
               <div class="card-des">
                 <h3>Skills to Learn</h3>
-                <p>1</p>
+                <p>{{ number_of_l_skills }}</p>
               </div>
             </div>
 
@@ -125,7 +125,7 @@
 
               <div class="card-des">
                 <h3>Sent Requests</h3>
-                <p>1</p>
+                <p>{{ number_of_sent_requests }}</p>
               </div>
             </div>
 
@@ -152,7 +152,7 @@
 
               <div class="card-des">
                 <h3>Received Requests</h3>
-                <p>1</p>
+                <p>{{ number_of_received_requests }}</p>
               </div>
             </div>
 
@@ -264,6 +264,7 @@
                       <p>{{ request.status }}</p>
                       </div>
                       <p>Skill: {{ request.skill.title }}</p>
+                      <p>Email: <a href="https://mail.google.com/mail/?view=cm&to={{ request.to_user.email }}" target="_blank">{{ request.to_user.email }}</a></p>
                     </div>
                   {% endfor %}
                 </div>
